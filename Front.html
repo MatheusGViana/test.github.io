@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Financeiro</title>
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+<body>
+
+    <h2>Relatório Financeiro</h2>
+
+    <table>
+    <tr>
+        <th>Disponibilidade Financeira</th>
+        <th>Saldo</th>
+        <th>Total</th>
+        
+    
+        
+        
+        
+    </tr>
+        <td>Educação - 1500001001</td>
+        <td><input type="number" id="in1" oninput="somarInputs() + formatCurrency(this)"></td>
+        <td><span id="dispeduca">R$ 0</span></td>
+        
+        <tr>
+            <td>Fundeb - 1540000000 + 1540001070</td>
+            <td><input type="number" id="in2" oninput="somarInputs() + formatCurrency(this)"></td>
+        </tr>
+        <tr>
+            <td>Saúde - 1500001002</td>
+            <td><input type="number" id="in3" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><span id="dispsau">R$ 0</span></td>
+            
+        </tr>
+           
+        
+
+    </table>
+
+    <table>
+        <tr>
+            <th>Recursos da Educação</th>
+            <th>Valor Pago</th>
+            <th>Empenhado a liquidar</th>
+            <th>Liquidado a pagar</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>1 - Despesas fonte 150001001</td>
+            <td><input type="number" id="input1" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><input type="number" id="input2" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><input type="number" id="input3" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><span id="resultado">R$ 0</span></td>
+        </tr>
+        <tr>
+            <td>2 - Despesas fontes Fundeb</td>
+            <td><input type="number" id="input4" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><input type="number" id="input5" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><input type="number" id="input6" oninput="somarInputs() + formatCurrency(this)"></td>
+            <td><span id="resultado1">R$ 0</span></td>
+        </tr>
+        <tr>
+            <td>3 - TOTAL DESPESAS</td>
+            <td><span id="despesa1">R$ 0</span></td>
+            <td><span id="despesa2">R$ 0</span></td>
+            <td><span id="despesa3">R$ 0</span></td>
+            <td><span id="resultado2">R$ 0</span></td>
+        </tr>
+        
+    </table>
+
+    <table>
+        <tr>
+            <th>Apuração do índice</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>4 - VALOR PAGO</td>
+            <td><span id="despesa4">R$ 0</span></td>
+        </tr>
+        <tr>
+            <td>5 - RESULTADO TRANSFERÊNCIAS DO FUNDEB</td>
+            <td><input type="number" oninput="formatCurrency(this)"value=""></td>
+        </tr>
+        <tr>
+            <td>6 - DESPESA SUPERÁVIT FUNDEB ATÉ PRIMEIRO QUADRIMESTRE</td>
+            <td><input type="number" oninput="formatCurrency(this)"value=""></td>
+        </tr>
+        <tr>
+            <td>13 – TOTAL APLICADO ((4+6+7+8+9+10) – (5+11+12))</td>
+            <td><input type="number" id="input7" oninput="somarInputs() + formatCurrency(this)"></td>
+        </tr>
+        <tr>
+            <td>14 – RECEITA BASE DE CÁLCULO PARA 25 %</td>
+            <td><input type="number" id="input8" oninput="somarInputs() + formatCurrency(this)"></td>
+        </tr>
+        <tr>
+            <td>15 – PERCENTUAL APLICADO </td>
+            <td><span id="resultado%">%</span></td>
+        </tr>
+        <tr>
+            <td>16 – DÉFICIT ACUMULADO</td>
+            <td><span id="defici">0</span></td>
+        </tr>
+
+    </table>
+
+    <script>
+        function somarInputs() {
+            // Obter os valores dos inputs
+            var num1 = parseFloat(document.getElementById('input1').value) || 0;
+            var num2 = parseFloat(document.getElementById('input2').value) || 0;
+            var num3 = parseFloat(document.getElementById('input3').value) || 0;
+            var num4 = parseFloat(document.getElementById('input4').value) || 0;
+            var num5 = parseFloat(document.getElementById('input5').value) || 0;
+            var num6 = parseFloat(document.getElementById('input6').value) || 0;
+            var desp1 = parseFloat(document.getElementById('input1').value) || 0;    
+            var desp4 = parseFloat(document.getElementById('input4').value) || 0; 
+            var desp2 = parseFloat(document.getElementById('input2').value) || 0;  
+            var desp5 = parseFloat(document.getElementById('input5').value) || 0; 
+            var desp3 = parseFloat(document.getElementById('input3').value) || 0;  
+            var desp6 = parseFloat(document.getElementById('input6').value) || 0;
+            var percent1 = parseFloat(document.getElementById('input7').value) || 0;
+            var percent2 = parseFloat(document.getElementById('input8').value) || 0;
+            var dispedu1 = parseFloat(document.getElementById('in1').value) || 0;  
+            var dispedu2 = parseFloat(document.getElementById('in2').value) || 0;  
+            var dispesau1 = parseFloat(document.getElementById('in3').value) || 0;    
+                              
+            // Calcular a soma
+            
+            var soma = num1 + num2 + num3;
+            var soma1 = num4 + num5 +num6;
+            var sdesp1 = desp1 + desp4;
+            var sdesp2 = desp2 + desp5;
+            var sdesp3= desp3 + desp6;
+            var resultdesp = sdesp1 + sdesp2 + sdesp3;
+            var percent3 = percent1*25 / percent2;
+            var defi1 = percent1 - percent2;
+            var dispedu = dispedu1 + dispedu2
+            // Exibir o resultado
+
+            document.getElementById('resultado').innerText = formatCurrency(soma);
+            document.getElementById('resultado1').innerText = formatCurrency(soma1);
+            document.getElementById('despesa1').innerText = formatCurrency(sdesp1);
+            document.getElementById('despesa4').innerText = formatCurrency(sdesp1);
+            document.getElementById('despesa2').innerText = formatCurrency(sdesp2);
+            document.getElementById('despesa3').innerText = formatCurrency(sdesp3);
+            document.getElementById('resultado2').innerText = formatCurrency(resultdesp);
+            document.getElementById('resultado%').innerText = (percent3);
+            document.getElementById('defici').innerText = formatCurrency(defi1);
+            document.getElementById('dispeduca').innerText = formatCurrency(dispedu);
+            document.getElementById('dispsau').innerText = formatCurrency(dispesau1);
+
+            
+        }
+         var percent3 = value.toFixed(2)
+        
+        function formatCurrency(value) {
+            // Formata o valor como moeda
+            return 'R$ ' + value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+    </script>
+</body>
+</html>
